@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品新規</title>
+</head>
+<body>
+	<nav>
+		<div>]
+			<div>
+				<p><a href="/items">商品管理デモ</a></p>
+			</div>
+		</div>
+	</nav>
+	<div>
+		<div>
+			<div>
+				<h1>商品新規</h1>
+			</div>
+			<div>
+				<form th:action="@{/items}" th:method="post">
+					<div>
+						<label>商品名</label>
+						<div>
+							<input type="text" name="name" th:value="*{name}" />
+							<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+						</div>
+					</div>
+					<div>
+						<label>価格</label>
+						<div>
+							<input type="text" name="price" th:value="*{price}" />
+							<div th:if="${#fields.hasErrors('price')" th:errors="*{price}"></div>
+						</div>
+					</div>
+					<div>
+						<label>ベンダー</label>
+						<div>
+							<input type="text" name="vendor" th:value="*{vendor}">
+							<div th:if="${#fields.hasErrors('vendor')" th:errors="*{vendor"></div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<button>新規</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

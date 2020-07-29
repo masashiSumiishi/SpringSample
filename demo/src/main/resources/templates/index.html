@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品一覧</title>
+</head>
+<body>
+	<nav>
+		<div>
+			<div>
+				<p><a href="/items">商品管理デモ</a></p>
+			</div>
+		</div>
+	</nav>
+	<div>
+		<div>
+			<h1>商品リスト<a href="/items/new">新規</a></h1>
+		</div>
+		<div th:if="!${items.size()}">
+			<p>商品がありません</p>
+		</div>
+		<table th:if="${items.size()}">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>商品名</th>
+					<th>価格</th>
+					<th>ベンダー</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item:${items}" th:object="${item}">
+					<td th:text="*{id}"></td>
+					<td th:text="*{name}"></td>
+					<td th:text="*{price}"></td>
+					<td th:text="*{vendor}"></td>
+					<td>
+						<form th:action="@{/items/{id}(id=*{id})" th:method="delete">
+							<a th:href="@{/items/{id}(id=*{id})">詳細</a>
+							<a th:href="@{/items/{id}/edit(id=*{id})">変更</a>
+							<button>削除</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品詳細</title>
+</head>
+<body>
+	<nav>
+		<div>
+			<div>
+				<p><a href="/items">商品管理デモ</a></p>
+			</div>
+		</div>
+	</nav>
+	<div>
+		<div>
+			<h1>商品詳細</h1>
+		</div>
+		<div>
+			<div th:object="${item}">
+				<div>
+					<label>商品名</label>
+					<div th:text="*{name}"></div>
+				</div>
+				<div>
+					<label>価格</label>
+					<div th:text="*{price}"></div>
+				</div>
+				<div>
+					<label>ベンダー</label>
+					<div th:text="*{vendor}"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
